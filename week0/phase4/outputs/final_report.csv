@@ -1,0 +1,11 @@
+customer_name,city,total_spend,order_count,segment
+Kiran,Chennai,350,1,Bronze
+Meena,Hyderabad,800,2,Bronze
+Anjali,Mumbai,1200,2,Bronze
+Sita,Chennai,1250,2,Bronze
+Rahul,Bangalore,750,1,Bronze
+David,Pune,450,1,Bronze
+John,Delhi,800,1,Bronze
+Pooja,Delhi,650,1,Bronze
+Ravi,Hyderabad,800,2,Bronze
+Arun,Bangalore,900,2,Bronze
