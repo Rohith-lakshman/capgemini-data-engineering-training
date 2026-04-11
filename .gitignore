@@ -2,3 +2,6 @@ venv/
 __pycache__/
 *.db
 *.pyc
+
+# Exceeds GitHub 100MB file size limit
+week1/DAY5/Pyspark_Session_10am.ipynb
