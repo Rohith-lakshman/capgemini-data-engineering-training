@@ -1,0 +1,68 @@
+CREATE TABLE Employees (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(50),
+    department_id INT,
+    salary INT,
+    manager_id INT
+);
+INSERT INTO Employees VALUES
+(1, 'Alice', 101, 60000, NULL),
+(2, 'Bob', 102, 45000, 1),
+(3, 'Charlie', 101, 70000, 1),
+(4, 'David', 103, 40000, 2),
+(5, 'Eve', 102, 50000, 2);
+CREATE TABLE Departments (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(50)
+);
+INSERT INTO Departments VALUES
+(101, 'HR'),
+(102, 'IT'),
+(103, 'Finance');
+CREATE TABLE Orders (
+    order_id INT PRIMARY KEY,
+    emp_id INT,
+    order_amount INT,
+    order_date DATE
+);
+INSERT INTO Orders VALUES
+(1, 1, 5000, '2024-01-10'),
+(2, 2, 3000, '2024-02-15'),
+(3, 3, 7000, '2024-03-12'),
+(4, 1, 2000, '2024-04-01'),
+(5, 4, 1000, '2024-05-05');
+
+
+
+-- Subquery Questions
+
+-- 1. Find employees who earn more than average salary
+select emp_id,name,salary
+from Employees
+where salary > (select avg(salary) from Employees);
+      
+-- 2. Find employees who belong to the same department as 'Alice'
+SELECT name, department_id 
+FROM Employees 
+WHERE department_id = (
+    SELECT department_id 
+    FROM Employees 
+    WHERE name = 'Alice'
+);
+
+-- 
+
+-- 3. Get employees whose salary is equal to the minimum salary
+select emp_id,name,salary
+from Employees
+where salary = (select min(salary) from Employees);
+
+-- 4. Find employees who have placed at least one order
+select emp_id,name
+from Employees
+where emp_id  IN(select emp_id from Orders);
+
+-- 5. Get employees whose salary is greater than ALL employees in department 102
+select emp_id,name,salary
+from Employees
+where salary > (select max(salary) from Employees where department_id=102);s
