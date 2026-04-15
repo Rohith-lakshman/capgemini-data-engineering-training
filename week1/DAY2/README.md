@@ -1,8 +1,8 @@
-SQL GROUP BY Assignment README
+Advanced SQL JOINs Assignment README
 
 Overview
-This project is about learning how to use GROUP BY in SQL to analyze data.
-We use two tables: Employee and Sales.
+This project is about learning advanced SQL JOIN operations to combine data from multiple tables.
+We use tables like Employee and Sales to demonstrate different join types.
 
 Tables Used
 
@@ -22,32 +22,48 @@ sale_date - date
 
 What you learned
 
-1. GROUP BY basics
-   Group data based on a column like department.
-   Used to find total salary, average salary, max salary, min salary, and employee count.
+1. INNER JOIN
+   Returns records that have matching values in both tables.
+   Used to combine related data where both sides have data.
 
 Example
-Find total salary in each department.
+Find employees who have made sales.
 
-2. WHERE vs HAVING
-   WHERE filters data before grouping.
-   HAVING filters data after grouping.
+2. LEFT JOIN (LEFT OUTER JOIN)
+   Returns all records from the left table, and matched records from the right table.
+   If no match, NULL values are returned for right table columns.
 
 Example
-Find departments where total salary is greater than 100000.
+Find all employees and their sales (including employees with no sales).
 
-3. Using JOIN
-   Combine Employee and Sales tables using emp_id.
-   Used to find total sales per employee, number of sales, and product-wise sales.
+3. RIGHT JOIN (RIGHT OUTER JOIN)
+   Returns all records from the right table, and matched records from the left table.
+   If no match, NULL values are returned for left table columns.
 
-4. Advanced queries
-   Find highest sales per employee.
-   Count unique products sold.
-   Calculate salary and sales together.
+Example
+Find all sales and the employees who made them (including sales without employee data).
 
-Important point
-When using JOIN, salary can repeat for multiple sales records.
-So use MAX(salary) instead of SUM(salary).
+4. FULL OUTER JOIN
+   Returns all records when there is a match in either left or right table.
+   Combines results of both LEFT and RIGHT joins.
+
+Example
+Find all employees and all sales, showing matches and non-matches.
+
+5. Advanced JOIN queries
+   Joining multiple tables, using JOIN with WHERE and GROUP BY.
+   Handling NULL values in join results.
+
+Files
+- sql_joins.sql: SQL queries demonstrating different JOIN types
+- sql_queries.sql: Additional SQL queries for practice
+- sql_joins_outputs/: Output results from join queries
+- sql_queries_outputs/: Output results from additional queries
+
+Important points
+- Understand the difference between INNER and OUTER joins.
+- Be careful with NULL values in join results.
+- Use appropriate join types based on data requirements.
 
 5. Real world queries
    Top 3 employees with highest sales
